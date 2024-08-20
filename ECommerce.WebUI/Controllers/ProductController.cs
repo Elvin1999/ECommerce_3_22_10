@@ -18,7 +18,7 @@ namespace ECommerce.WebUI.Controllers
         public async Task<ActionResult> Index(int page=1,int category=0)
         {
             int pageSize = 10;
-            var items=await _productService.GetAllAsync();
+            var items=await _productService.GetAllByCategoryAsync(category);
             
             var model = new ProductListViewModel
             {

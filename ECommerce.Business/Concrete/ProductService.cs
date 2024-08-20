@@ -36,7 +36,7 @@ namespace ECommerce.Business.Concrete
 
         public async Task<List<Product>> GetAllByCategoryAsync(int categoryId)
         {
-            return await _productDal.GetList(p=>p.CategoryId == categoryId);
+            return await _productDal.GetList(p=>p.CategoryId == categoryId || categoryId==0);
         }
 
         public async Task<Product> GetByIdAsync(int id)
