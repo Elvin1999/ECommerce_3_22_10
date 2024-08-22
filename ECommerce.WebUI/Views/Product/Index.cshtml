@@ -30,7 +30,9 @@ else
                         @item.UnitsInStock
                     </td>
                     <td>
-                        <a class="btn btn-xs btn-success">Add To Cart</a>
+                        <a
+                            href="/Cart/AddToCart?productId=@item.ProductId&page=@Model.CurrentPage&category=@Model.CurrentCategory"
+                            class="btn btn-xs btn-success">Add To Cart</a>
                     </td>
                 </tr>
             }
