@@ -14,13 +14,14 @@ namespace ECommerce.WebUI.ViewComponents
             _categoryService = categoryService;
         }
 
-        public  ViewViewComponentResult Invoke()
+        public  ViewViewComponentResult Invoke(bool isAdmin=false)
         {
             var categories =  _categoryService.GetAllAsync().Result;
             var param = HttpContext.Request.Query["category"];
             var category = int.TryParse(param, out var categoryId);
             var model = new CategoryListViewModel
             {
+                IsAdmin=isAdmin,
                 Categories = categories,
                 CurrentCategory = category ? categoryId : 0,
             };
